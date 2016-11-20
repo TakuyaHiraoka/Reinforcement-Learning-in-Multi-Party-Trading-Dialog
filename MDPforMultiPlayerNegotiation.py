@@ -56,8 +56,8 @@ class ExperimentalConditions:#ノート 現状から動かないＵＳの除去
     #NFQのActivationNetwork中の中間層*10
     #LSPIのExprolationReward->400
     
-    isLearning=False#学習を行うか
-    isTest=True#方策評価を行うか
+    isLearning=True#学習を行うか
+    isTest=False#方策評価を行うか
     
     #学習方策
     isUseLinearQ=False#線形関数でＱ関数を近似するか。Ｆａｌｓｅの場合、ニューラルネットを利用する
@@ -78,7 +78,7 @@ class ExperimentalConditions:#ノート 現状から動かないＵＳの除去
     
     #報酬を現在の手の改善率に応じて逐次与えるか
     #Falseの場合は対話が終わってから与えられる
-    isFeedRewardAsImprovement=False
+    isFeedRewardAsImprovement=True
     
     #各自のアイテム数とオファーテーブル以外に対話情報を利用する
     #-数ターン以内に達成可能なゴール
@@ -92,8 +92,8 @@ class ExperimentalConditions:#ノート 現状から動かないＵＳの除去
     
     #-学習/方策評価時の実験パラメータ
     numSystems=1#学習を行うシステム方策の数。それぞれモデルの初期値が異なる
-    numBatch=10#200#学習/方策評価時のパラメータの更新回数
-    numEpisode=2000#2000#学習/方策評価時の各バッチで行う対話の回数
+    numBatch=200#学習/方策評価時のパラメータの更新回数
+    numEpisode=2000#学習/方策評価時の各バッチで行う対話の回数
     numBatchStartLogging=2#学習時の最適な方策の記録を開始する最低バッチ回数
 
     #最大ターン数 50->20
@@ -111,7 +111,7 @@ class ExperimentalConditions:#ノート 現状から動かないＵＳの除去
     #H=ハンドクラフト、R=ランダム
     listCombinationofOpponentsStrategy=[
                                         #"H","R",
-                                        "HxH","HxR","RxR", 
+                                        "HxH"#,"HxR","RxR", 
                                         #"HxHxH","HxHxR","HxRxR","RxRxR"
                                         ]
     #現在の組み合わせ
